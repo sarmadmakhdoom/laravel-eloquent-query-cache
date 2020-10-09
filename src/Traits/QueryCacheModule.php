@@ -148,7 +148,7 @@ trait QueryCacheModule
      */
     public function generatePlainCacheKey(string $method = 'get', $id = null, $appends = null): string
     {
-        $name = $this->connection->getName();
+        $name = $this->connection->getDatabaseName();
 
         // Count has no Sql, that's why it can't be used ->toSql()
         if ($method === 'count') {

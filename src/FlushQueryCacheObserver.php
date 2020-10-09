@@ -72,7 +72,7 @@ class FlushQueryCacheObserver
     protected function invalidateCache(Model $model): void
     {
         $class = get_class($model);
-
+        \Log::debug("Invalidating Cache: " . get_class($model) . ' ' . $model->id);
         if (! $model->getCacheTagsToInvalidateOnUpdate()) {
             throw new Exception('Automatic invalidation for '.$class.' works only if at least one tag to be invalidated is specified.');
         }
